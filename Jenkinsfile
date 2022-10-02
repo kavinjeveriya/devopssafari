@@ -52,11 +52,11 @@ pipeline {
             steps {
                 sh('''#!/bin/bash
                 echo "Deploying the pods with ${BRANCH_NAME}"
-                if sudo docker ps -a | grep ${Imagetag}_app
+                if sudo docker ps -a | grep ${IMAGE_TAG}_app
                 then
-                sudo docker rm -f ${Imagetag}_app
+                sudo docker rm -f ${IMAGE_TAG}_app
                 fi
-                sudo docker run -dit -p 5000:5000 --name ${Imagetag}_app devopssafari/${IMAGE_TAG}_app:${GIT_COMMIT_HASH}
+                sudo docker run -dit -p 5000:5000 --name ${IMAGE_TAG}_app devopssafari/${IMAGE_TAG}_app:${GIT_COMMIT_HASH}
 		''')
             }
             post {

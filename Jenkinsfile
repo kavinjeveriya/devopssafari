@@ -1,15 +1,16 @@
-def Imagetag
-if (BRANCH_NAME == "dev") {
-    Imagetag = "devlope"
-} else if (BRANCH_NAME == "stage") {
-    Imagetag = "stage"
-} 
-
 def AgentLabel
 if (BRANCH_NAME == "dev") {
     AgentLabel = "dev"
 } else if (BRANCH_NAME == "stage") {
     AgentLabel = "stage"
+} 
+
+
+def Imagetag
+if (BRANCH_NAME == "dev") {
+    Imagetag = "devlope"
+} else if (BRANCH_NAME == "stage") {
+    Imagetag = "stage"
 } 
 
 pipeline {
@@ -51,11 +52,11 @@ pipeline {
             steps {
                 sh('''#!/bin/bash
                 echo "Deploying the pods with ${BRANCH_NAME}"
-                if sudo docker ps -a | grep ${APP_ENV}_app
+                if sudo docker ps -a | grep ${Imagetag}_app
                 then
-                sudo docker rm -f ${APP_ENV}_app
+                sudo docker rm -f ${Imagetag}_app
                 fi
-                sudo docker run -dit -p 5000:5000 --name ${APP_ENV}_app devopssafari/${IMAGE_TAG}_app:${GIT_COMMIT_HASH}
+                sudo docker run -dit -p 5000:5000 --name ${Imagetag}_app devopssafari/${IMAGE_TAG}_app:${GIT_COMMIT_HASH}
 		''')
             }
             post {

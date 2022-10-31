@@ -13,6 +13,5 @@ echo "*****Free memory is ${free_mem}%*****"
 if [ "$free_mem" -le "20" ]
 then
 echo "*****Running out of memory ($free_mem%) on $(hostname) as on $(date)*****"
-exit 1
 fi
 deactivate

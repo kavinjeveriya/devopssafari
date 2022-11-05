@@ -18,7 +18,8 @@
 							"});\r",
 							"pm.test(\"Body matches string\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"Hello\");\r",
-							"});"
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -36,6 +37,43 @@
 						"220"
 					],
 					"port": "5000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "13.233.196.220:5000/times",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\":\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "13.233.196.220:5000/times",
+					"host": [
+						"13",
+						"233",
+						"196",
+						"220"
+					],
+					"port": "5000",
+					"path": [
+						"times"
+					]
 				}
 			},
 			"response": []

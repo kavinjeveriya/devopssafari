@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "34e062af-828d-4b03-9659-e58463befe2e",
+		"name": "Testing ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19647060"
+	},
+	"item": [
+		{
+			"name": "13.233.196.220:5000",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"Hello\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "13.233.196.220:5000",
+					"host": [
+						"13",
+						"233",
+						"196",
+						"220"
+					],
+					"port": "5000"
+				}
+			},
+			"response": []
+		}
+	]
+}
